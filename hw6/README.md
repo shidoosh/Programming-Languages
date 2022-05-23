@@ -1,5 +1,6 @@
 # Homework 6. Language bindings for TensorFlow
 
+### Dev's note: I chose to compare Java, OCaml, and Crystal. 
 
 ## Motivation
 Following up on the project, suppose you are trying to run an application server proxy herd on a large set of virtual machines. Your application uses machine learning algorithms and relies heavily on TensorFlow. You've built a prototype using Python and it runs as well as could be expected on large queries.
