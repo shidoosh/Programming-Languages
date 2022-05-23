@@ -42,12 +42,12 @@ Build and use a sequential-consistency-violating performance and reliability tes
 * Run the test harness on the Null and Synchronized classes, using various values for the number of threads, number of swap transitions, size of the state array, and sum of values in the state array, and characterize the performance of the two classes. Both classes should have 100% reliability, in the sense that they should pass all the tests (even though the Null class does not work); check this.
 * Do the following tasks and submit work that embodies your results.
 
-Implement a new class Unsynchronized, which is implemented just like Synchronized except that it does not use the keyword synchronized in its implementation.
-Implement a new class GetNSet, which is halfway between unsynchronized and synchronized, in that it does not use synchronized code, but instead uses volatile accesses to array elements. Implement it with the get and set methods of java.util.concurrent.atomic.AtomicIntegerArray.
-Design and implement a new class BetterSafe of your choice, which achieves better performance than Synchronized while retaining 100% reliability.
-Integrate all the classes into a single program UnsafeMemory, which you should be able to compile with the command javac UnsafeMemory.java and to run using the same sort of shell command as the test harness.
-For each class Synchronized, Unsynchronized, GetNSet, and BetterSafe, measure and characterize the class's performance and reliability.
-Compare the classes' reliability and performance to each other. Does any class seem to be the best choice for GDI's applications?
+1. Implement a new class Unsynchronized, which is implemented just like Synchronized except that it does not use the keyword synchronized in its implementation.
+2. Implement a new class GetNSet, which is halfway between unsynchronized and synchronized, in that it does not use synchronized code, but instead uses volatile accesses to array elements. Implement it with the get and set methods of java.util.concurrent.atomic.AtomicIntegerArray.
+3. Design and implement a new class BetterSafe of your choice, which achieves better performance than Synchronized while retaining 100% reliability.
+4. Integrate all the classes into a single program UnsafeMemory, which you should be able to compile with the command javac UnsafeMemory.java and to run using the same sort of shell command as the test harness.
+5. For each class Synchronized, Unsynchronized, GetNSet, and BetterSafe, measure and characterize the class's performance and reliability.
+6. Compare the classes' reliability and performance to each other. Does any class seem to be the best choice for GDI's applications?
 When considering how to implement BetterSafe, read Doug Lea's Using JDK 9 Memory Order Nodes. Also, you can look at the following packages and classes for implementation ideas:
 
 java.util.concurrent
