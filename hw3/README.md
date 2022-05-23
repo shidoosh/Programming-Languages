@@ -19,15 +19,15 @@ It's easy to write programs that break sequential consistency in Java. To model 
 
 For an example of a simulation, see jmm.jar, a JAR file containing the simplified source code of a simulation. It contains the following interfaces and classes:
 
-## State
+* State
 The API for a simulation state. The only way to change the state is to invoke swap(i,j), where i and j are indexes into the array. If the ith entry in the array is positive and the jth entry is less than the maximum value allowed, the swap succeeds, subtracting 1 from the ith entry and adding 1 to the jth entry, returning true. Otherwise the swap fails and does nothing, returning false.
-Nullstate
+* Nullstate
 An implementation of State that does nothing. Swapping has no effect. This is used for timing the scaffolding of the simulation.
-SynchronizedState
+* SynchronizedState
 An implementation of State that uses the Synchronized class so that it is safe but slow.
-SwapTest
+* SwapTest
 A Runnable class that tests a state implementation by performing a given number of successful swaps on it. It does not count failed swaps.
-UnsafeMemory
+* UnsafeMemory
 A test harness, with a main method. Invoke it via a shell command like "java UnsafeMemory Synchronized 8 1000000 6 5 6 3 0 3". Here, Synchronized means to test the SynchronizedState implementation; 8 means to divide the work into 8 threads of roughly equal size; 1000000 means to do a million successful swap transitions total; 6 is maxval, an integer in the range [0,127] as described above; and the remaining five numbers are the initial values for the five entries in the state array. The shell command outputs a string like "Threads average 3318.01 ns/transition", giving the approximate average number of real-time nanoseconds that it took a thread to do a successful swap, including all the overhead. It also outputs an error diagnostic if a reliability test fails.
 
 ## Assignment
