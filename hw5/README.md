@@ -1,5 +1,5 @@
 # Homework 5. Scheme code difference analyzer
-### Editor's note: This submission is incomplete, and does not perform to spec. 
+### Dev's note: This submission is incomplete, and does not perform to spec. 
 ## The problem
 Your employer Litigious Data Analysts Inc. (LDA) is suing Software Verification Modules Inc. (SVM), claiming that SVM stole large bodies of LDA's code and incorporated it into their data mining product, while renaming identifiers to try to hide the fact that the code was stolen, and also making other minor changes. As part of the legal discovery process, LDA has obtained copies of SVM's data miner and wants to compare it to LDA's to find evidence of unauthorized copying. About 5% of both data miners are written in Scheme. Your team has been assigned the job of comparing the Scheme parts.
 
