@@ -4,3 +4,6 @@ This repo contains the coursework for UCLA's CS 131 course taught by Paul Eggert
 * Java 
 * Prolog
 * Scheme
+* Memory Management 
+* Functional Programming 
+* Research Fundamentals 
