@@ -201,10 +201,10 @@ If you put the sample test cases into a file hw1sample.ml, you should be able to
 $ ocaml
         OCaml version 4.04.2
 
-# #use "hw1.ml";;
+\# \#use "hw1.ml";;
 type ('a, 'b) symbol = N of 'a | T of 'b
 ...
-# #use "hw1sample.ml";;
+\# \#use "hw1sample.ml";;
 val subset_test0 : bool = true
 val subset_test1 : bool = true
 val subset_test2 : bool = true
