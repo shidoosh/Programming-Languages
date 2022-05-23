@@ -1,0 +1,24 @@
+#lang racket
+
+(define (is-keyword x)
+  (member x '(quote lambda let if)))
+
+(define (get-let-vars x)
+  (map car (car (cdr x))))
+
+
+
+(define (expr-compare x y)
+  (cond
+        [(equal? x y) x]
+        [(and (boolean? x) (boolean? y))
+                (if x '% '(not %))]
+        [(or (not (and (list? x) (list? y)))
+        (not (= (length x) (length y)))
+        (or (equal? (car x) 'quote) (equal? (car y) 'quote))
+        (and (equal? (car x) 'lambda) (equal? (car y) 'lambda) (not (equal? (car (cdr x)) (car (cdr y)))))
+        (and (equal? (car x) 'let) (equal? (car y) 'let) (not (equal? (get-let-vars x) (get-let-vars y))))
+        (and (or (is-keyword (car x)) (is-keyword (car y))) (not (equal? (car x) (car y)))))
+        (list 'if '% x y)]
+        [else (cons (expr-compare (car x) (car y)) (expr-compare (cdr x) (cdr y)))]))
+

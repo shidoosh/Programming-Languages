@@ -1,0 +1,50 @@
+Initally reading the spec my approach was ill-advised, but that mostly came from 
+not fully understanding what was being asked 
+My first thought was to iterate through each rule, 
+and test it against an actual computation 
+in OCaml. That is, get 3+4 from the list, and run it in OCaml to see 
+if it was successful, and therefore a successful parse. 
+In other words, discussion was very helpful. 
+
+I solved this problem the way I did after much guidance from my TA and PIAZZA. 
+(Thank you so much!)  My approach was to consider  
+the rules from left to right for the individual rule
+by each symbol, and from in order of which 
+the rules were listed. I considered going through 
+each with brute-force, which ultimately failed because 
+of the cases I needed to backtrack. 
+I then thought of having a list that tracked my results as I went, 
+but declaring such a list would be "un-OCaml-like". 
+At this point I knew I would have to implement it recursively (obviously), 
+but I had difficulty figuring out how to get the rules, 
+and how to handle failures respective to the grammar. 
+
+After consulting with my TA, I concluded the best approach was 
+to first derive the rules, pass to the acceptor, 
+and if the acceptor accepted the match, I could go ahead and parse
+according to the derived rules. 
+
+This is where I had the most difficulty, but I solved this problem 
+by having two separate functions that called each other 
+(again, thank you to my TA who mentioned the "and" keyword), 
+which allowed to derive and test as I went through the rules, 
+and thus achieve the correct parse. 
+
+My derive_rules function checks symbol by symbol from left to right, 
+and passes to the acceptor. So, say a grammar allows 3+4, it would accept 
+3 as a num, reject 3+, and accept 3+4 as an expression. 
+If the derivation is accepted as well-formed, the test_rules function 
+checks if the rule is well-applied relative to the grammar,
+checking each rule in the order they were listed. 
+ 
+My implementation I'm sure would fail with more complicated grammars. 
+Also, it is not equipped to handle blind alley rules, 
+but I was told it is not meant to so I did not bother 
+to consider these cases. 
+In addition, my program cannot handle rules such as
+A -> B | Cc
+B -> A.
+
+Another shortcoming is that my implementation expects 
+rules to work based on the order they were listed. This, therefore, 
+may cause issues if the same grammar is given but in a different order.
