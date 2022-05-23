@@ -33,14 +33,14 @@ A test harness, with a main method. Invoke it via a shell command like "java Uns
 ## Assignment
 Build and use a sequential-consistency-violating performance and reliability testing program, along the lines described below.
 
-*Your program should operate under Java Standard Edition 10. There is no need to run on older Java versions.
-*Your program should compile cleanly, without any warnings.
-*Please keep your implementation as simple and short as possible, for the benefit of the reader.
-*Use the SEASnet GNU/Linux servers lnxsrv0[679], with Java SE Development Kit 10.0.1+10 or later, to do your performance and reliability measurements. On SEASnet your PATH should be set to a string starting with "/usr/local/cs/bin:".
-*Do not use more than 40 threads at a time, to avoid overloading the servers.
-*Gather and report statistics about your testing platform, so that others can reproduce your results if they have similar hardware. See the output of java -version, and see the files /proc/cpuinfo and /proc/meminfo.
-*Run the test harness on the Null and Synchronized classes, using various values for the number of threads, number of swap transitions, size of the state array, and sum of values in the state array, and characterize the performance of the two classes. Both classes should have 100% reliability, in the sense that they should pass all the tests (even though the Null class does not work); check this.
-*Do the following tasks and submit work that embodies your results.
+* Your program should operate under Java Standard Edition 10. There is no need to run on older Java versions.
+* Your program should compile cleanly, without any warnings.
+* Please keep your implementation as simple and short as possible, for the benefit of the reader.
+* Use the SEASnet GNU/Linux servers lnxsrv0[679], with Java SE Development Kit 10.0.1+10 or later, to do your performance and reliability measurements. On SEASnet your PATH should be set to a string starting with "/usr/local/cs/bin:".
+* Do not use more than 40 threads at a time, to avoid overloading the servers.
+* Gather and report statistics about your testing platform, so that others can reproduce your results if they have similar hardware. See the output of java -version, and see the files /proc/cpuinfo and /proc/meminfo.
+* Run the test harness on the Null and Synchronized classes, using various values for the number of threads, number of swap transitions, size of the state array, and sum of values in the state array, and characterize the performance of the two classes. Both classes should have 100% reliability, in the sense that they should pass all the tests (even though the Null class does not work); check this.
+* Do the following tasks and submit work that embodies your results.
 
 Implement a new class Unsynchronized, which is implemented just like Synchronized except that it does not use the keyword synchronized in its implementation.
 Implement a new class GetNSet, which is halfway between unsynchronized and synchronized, in that it does not use synchronized code, but instead uses volatile accesses to array elements. Implement it with the get and set methods of java.util.concurrent.atomic.AtomicIntegerArray.
