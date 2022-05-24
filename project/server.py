@@ -4,7 +4,7 @@ import async_timeout
 import json
 import os, sys, time, re
 
-API_KEY = 'AIzaSyD6mmukXvl27lmiOU_UU3_MzS2odUvcbYI'
+API_KEY = ''
 
 clients = {}
 serverIDs = ['Goloman', 'Hands', 'Holiday', 'Welsh', 'Wilkes']
